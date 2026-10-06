@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegoStore.Domain", "MegoStore.Domain\MegoStore.Domain.csproj", "{31E3B69A-4062-4FB8-AF43-B5434D570F44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegoStore.Application", "MegoStore.Application\MegoStore.Application.csproj", "{8AF5868D-F9C7-4F9D-9A7B-6475FC20EED3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegoStore.Infrastructure", "MegoStore.Infrastructure\MegoStore.Infrastructure.csproj", "{1C842F25-0666-49A1-9D60-B89C5E4E5BFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MegoStore.API", "MegoStore.API\MegoStore.API.csproj", "{4EC9A6D1-650E-4CC0-9F05-27E9CEDA74F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31E3B69A-4062-4FB8-AF43-B5434D570F44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E3B69A-4062-4FB8-AF43-B5434D570F44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E3B69A-4062-4FB8-AF43-B5434D570F44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E3B69A-4062-4FB8-AF43-B5434D570F44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AF5868D-F9C7-4F9D-9A7B-6475FC20EED3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AF5868D-F9C7-4F9D-9A7B-6475FC20EED3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AF5868D-F9C7-4F9D-9A7B-6475FC20EED3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AF5868D-F9C7-4F9D-9A7B-6475FC20EED3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C842F25-0666-49A1-9D60-B89C5E4E5BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C842F25-0666-49A1-9D60-B89C5E4E5BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C842F25-0666-49A1-9D60-B89C5E4E5BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C842F25-0666-49A1-9D60-B89C5E4E5BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EC9A6D1-650E-4CC0-9F05-27E9CEDA74F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EC9A6D1-650E-4CC0-9F05-27E9CEDA74F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EC9A6D1-650E-4CC0-9F05-27E9CEDA74F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EC9A6D1-650E-4CC0-9F05-27E9CEDA74F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
