@@ -26,7 +26,7 @@ namespace MegoStore.Infrastructure.Repositories
             _jwt = jwt.Value;
         }
 
-   
+
 
         public async Task<AuthModel> RegisterAsync(RegisterDto dto)
         {
@@ -103,6 +103,44 @@ namespace MegoStore.Infrastructure.Repositories
                 signingCredentials: signingCredentials);
 
             return jwtSecurityToken;
+        }
+
+        public async Task<AuthModel?> LoginAsync(LoginDto loginDto)
+        {
+            var authmodel = new AuthModel();
+
+            var user = await _userManager.FindByEmailAsync(loginDto.Email);
+            if (user == null || !await _userManager.CheckPasswordAsync(user, loginDto.Password))
+            {
+                authmodel.message = ("Email or password is Incorrect");
+                return authmodel;
+
+            }
+            var jwtSecurityToken = await CreateJwtToken(user);
+            var roleslist = await _userManager.GetRolesAsync(user);
+            authmodel.IsAuthentcated = true;
+            authmodel.Email = user.Email;
+            authmodel.Token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+            authmodel.username = user.UserName;
+            authmodel.Expireon = jwtSecurityToken.ValidTo;
+            authmodel.Roles = roleslist.ToList();
+
+            return authmodel;
+        }
+
+        public async Task<string> AddRoleAsync(AddRoleModel model)
+        {
+            var user = await _userManager.FindByIdAsync(model.UserId);
+            if (user is null|| !await _roleManager.RoleExistsAsync(model.Role))
+
+                return "Invalid UserId or Role";
+
+
+            if (await _userManager.IsInRoleAsync(user, model.Role))
+                return "user is already assigned to this role";
+
+            var result=await _userManager.AddToRoleAsync(user, model.Role);
+            return result.Succeeded ? string.Empty : "something went worng!";
         }
     }
 }

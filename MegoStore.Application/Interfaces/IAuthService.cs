@@ -13,6 +13,9 @@ namespace MegoStore.Application.Interfaces
     {
         Task<AuthModel> RegisterAsync(RegisterDto dto);
          //Task<AuthModel> CreateJwtToken(TokenRequestModel model);
+         Task<AuthModel?> LoginAsync(LoginDto loginDto);
+        Task<string> AddRoleAsync(AddRoleModel model);
+
 
 
     }
