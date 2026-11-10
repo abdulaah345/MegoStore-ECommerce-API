@@ -1,6 +1,7 @@
 ﻿using MegoStore.Application.Dtos;
 using MegoStore.Application.Interfaces;
 using MegoStore.Domain.Entities.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,8 +48,8 @@ namespace MegoStore.API.Controller
 
             }
 
-
         [HttpPost("AddRole")]
+        [Authorize(Roles ="Admin")]
 
         public async Task<IActionResult> AddRoleAsync([FromBody]AddRoleModel model)
         {

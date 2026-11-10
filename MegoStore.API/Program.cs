@@ -1,10 +1,14 @@
 using MegoStore.Application.Interfaces;
+using MegoStore.Application.Mapping;
 using MegoStore.Domain.Entities.Identity;
 using MegoStore.Infrastructure.Data;
+using MegoStore.Infrastructure.Extensions;
 using MegoStore.Infrastructure.Repositories;
+using MegoStore.Infrastructure.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System.Configuration;
@@ -17,13 +21,12 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(option=>{
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<Jwt>(builder.Configuration.GetSection("Jwt"));
-builder.Services.AddScoped<IUnitofWork, UnitOfWork>();
-builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddInfrastructureServices();
 
 builder.Services.AddIdentity<User,IdentityRole>(option =>
 {
@@ -69,6 +72,7 @@ builder.Services.AddAuthentication(Options =>
     };
 });
 builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

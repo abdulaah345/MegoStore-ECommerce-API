@@ -19,7 +19,11 @@ namespace MegoStore.Application.Interfaces
         void Update(T entity);
 
         void Delete(T entity);
-
+        Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate);
+        Task<T> GetWithIncludeAsync(
+    Expression<Func<T, bool>> predicate,
+    params Expression<Func<T, object>>[] includes);
+        Task<T> GetWithIncludeAsync(Expression<Func<T, bool>> predicate, params string[] includes);
         Task<int> SaveChangesAsync();
     }
 }
